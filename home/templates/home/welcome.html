@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+
+
+    <title>Bienvenido</title>
+
+    {% block css %}{% endblock%}
+
+
+    <link rel="apple-touch-icon" href='{% static "assets/images/apple-touch-icon.png"%}'>
+    <link rel="shortcut icon" href='{% static "assets/images/favicon.ico" %}'>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href='{% static "/assets/global/css/bootstrap.min.css"%}'>
+    <link rel="stylesheet" href='{% static "/assets/global/css/bootstrap-extend.min.css" %}'>
+    <link rel="stylesheet" href='{% static "/assets/css/site.css" %}'>
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href='{% static "/assets/global/vendor/animsition/animsition.css"%}'>
+    <link rel="stylesheet" href='{% static "/assets/global/vendor/asscrollable/asScrollable.css" %}'>
+    <link rel="stylesheet" href='{% static "/assets/global/vendor/switchery/switchery.css" %}'>
+    <link rel="stylesheet" href='{% static "/assets/global/vendor/intro-js/introjs.css" %}'>
+    <link rel="stylesheet" href='{% static "/assets/global/vendor/slidepanel/slidePanel.css" %}'>
+    <link rel="stylesheet" href='{% static "/assets/global/vendor/flag-icon-css/flag-icon.css" %}'>
+    <link rel="stylesheet" href='{% static "/assets/global/vendor/owl-carousel/owl.carousel.css" %}'>
+    <link rel="stylesheet" href='{% static "assets/global/vendor/slick-carousel/slick.css"%}'>
+    <link rel="stylesheet" href='{% static "/assets/examples/css/uikit/carousel.css" %}'>
+
+
+    <link rel="stylesheet" href='{% static "/assets/global/vendor/plyr/plyr.css" %}'>
+
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href='{% static "/assets/global/fonts/web-icons/web-icons.min.css" %}'>
+    <link rel="stylesheet" href='{% static "/assets/global/fonts/brand-icons/brand-icons.min.css" %}'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+
+    <!--[if lt IE 9]>
+    <script src='{% static "/assets/global/vendor/html5shiv/html5shiv.min.js" %}'></script>
+    <![endif]-->
+
+    <!--[if lt IE 10]>
+    <script src='{% static "/assets/global/vendor/media-match/media.match.min.js" %}'></script>
+    <script src='{% static "/assets/global/vendor/respond/respond.min.js" %}'></script>
+    <![endif]-->
+
+    <!-- Scripts -->
+    <script src='{% static "/assets/global/vendor/breakpoints/breakpoints.js" %}'></script>
+    <script>
+      Breakpoints();
+
+    </script>
+</head>
+<body class="animsition">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+{% if user.is_authenticated %}
+<script>
+
+                window.location.href = "/home";
+
+
+</script>
+{% endif %}
+
+
+<nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+    <div class="container container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggler hamburger hamburger-close collapsed"
+                    data-target="#example-navbar-collapse-3" data-toggle="collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <a class="navbar-brand" href="javascript:void(0)">Plataforma</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse-3">
+            <a href="/register" class="btn  navbar-right navbar-btn">Registro</a>
+            <a href="/login" class="btn btn-primary navbar-right navbar-btn">Ingresar</a>
+        </div>
+    </div>
+</nav>
+
+<!-- End Example Buttons -->
+
+
+<div>
+
+    <!-- Example Card Content -->
+    <div class="example-wrap">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card card-inverse bg-primary">
+                    <div class="card-block">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">Lorem ipsum Dolor dolor enim Ut consequat tempor quis minim enim
+                            sit ad in qui Ut in ut elit minim quis eiusmod reprehenderit
+                            aute cillum consequat enim Ut veniam labore dolor anim quis
+                            ullamco in cupidatat dolore ut amet elit sint magna exercitation
+                            aliquip.</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- Example Card Content -->
+
+
+    </div>
+
+
+</div>
+
+<!--
+<div class="page-content container-fluid">
+
+</div>
+-->
+
+<!-- End Page -->
+
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="site-footer-legal">© 2018 <a href="#">Plataforma E-learning</a></div>
+
+</footer>
+
+{% block js %}{% endblock %}
+<!-- Core  -->
+<script src='{% static "/assets/global/vendor/babel-external-helpers/babel-external-helpers.js" %}'></script>
+<script src='{% static "/assets/global/vendor/jquery/jquery.js" %}'></script>
+<script src='{% static "/assets/global/vendor/popper-js/umd/popper.min.js" %}'></script>
+<script src='{% static "/assets/global/vendor/bootstrap/bootstrap.js" %}'></script>
+<script src='{% static "/assets/global/vendor/animsition/animsition.js" %}'></script>
+<script src='{% static "/assets/global/vendor/mousewheel/jquery.mousewheel.js" %}'></script>
+<script src='{% static "/assets/global/vendor/asscrollbar/jquery-asScrollbar.js" %}'></script>
+<script src='{% static "/assets/global/vendor/asscrollable/jquery-asScrollable.js" %}'></script>
+<script src='{% static "/assets/global/vendor/ashoverscroll/jquery-asHoverScroll.js" %}'></script>
+
+
+<!-- Plugins -->
+
+<script src='{% static "/assets/global/vendor/switchery/switchery.js" %}'></script>
+<script src='{% static "/assets/global/vendor/intro-js/intro.js" %}'></script>
+<script src='{% static "/assets/global/vendor/screenfull/screenfull.js" %}'></script>
+<script src='{% static "/assets/global/vendor/slidepanel/jquery-slidePanel.js" %}'></script>
+
+<script src='{% static "/assets/global/vendor/plyr/plyr.js" %}'></script>
+<script src='{% static "/assets/global/vendor/matchheight/jquery.matchHeight-min.js" %}'></script>
+<script src='{% static "/assets/global/vendor/imagesloaded/imagesloaded.pkgd.js" %}'></script>
+<script src='{% static "/assets/global/vendor/masonry/masonry.pkgd.js" %}'></script>
+
+<script src='{% static "/assets/global/vendor/owl-carousel/owl.carousel.js'></script>
+<script src='{% static "/assets/global/vendor/slick-carousel/slick.js'></script>
+
+<!-- Scripts -->
+
+
+<script src='{% static "/assets/global/js/Component.js" %}'></script>
+<script src='{% static "/assets/global/js/Plugin.js" %}'></script>
+<script src='{% static "/assets/global/js/Base.js" %}'></script>
+<script src='{% static "/assets/global/js/Config.js" %}'></script>
+
+<script src='{% static "/assets/js/Section/Menubar.js" %}'></script>
+<script src='{% static "/assets/js/Section/GridMenu.js" %}'></script>
+<script src='{% static "/assets/js/Section/Sidebar.js" %}'></script>
+<script src='{% static "/assets/js/Section/PageAside.js" %}'></script>
+<script src='{% static "/assets/js/Plugin/menu.js" %}'></script>
+
+<script src='{% static "/assets/global/js/config/colors.js" %}'></script>
+<script src='{% static "/assets/js/config/tour.js" %}'></script>
+
+<script>Config.set('assets', '../../assets');</script>
+
+<!-- Page -->
+
+<script src='{% static "/assets/js/Site.js" %}'></script>
+<script src='{% static "/assets/global/js/Plugin/asscrollable.js" %}'></script>
+<script src='{% static "/assets/global/js/Plugin/slidepanel.js" %}'></script>
+<script src='{% static "/assets/global/js/Plugin/switchery.js" %}'></script>
+
+<script src='{% static "/assets/global/js/Plugin/plyr.js" %}'></script>
+<script src='{% static "/assets/global/js/Plugin/matchheight.js" %}'></script>
+<script src='{% static "/assets/global/js/Plugin/masonry.js" %}'></script>
+<script src='{% static "/assets/global/js/Plugin/owl-carousel.js" %}'></script>
+
+<script src='{% static "/assets/examples/js/uikit/carousel.js" %}'></script>
+
+<script>
+      (function(document, window, $){
+        'use strict';
+
+        var Site = window.Site;
+        $(document).ready(function(){
+          Site.run();
+        });
+      })(document, window, jQuery);
+
+</script>
+</body>
+</html>

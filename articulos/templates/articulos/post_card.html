@@ -1,0 +1,118 @@
+
+{% load markdown_deux_tags %}
+
+      <li class="masonry-item">
+        <div class="card card-shadow">
+          <div class="card-header cover">
+            <img class="cover-image" src="{{articulo.photo.url}}" alt="{{ articulo.user.get_full_name }}">
+          </div>
+          <div class="card-block">
+            <h3 class="card-title">{{ articulo.title}}</h3>
+            <p class="card-text type-link">
+              <small>
+                Por
+                <a href="javascript:void(0)">{{ articulo.user.get_full_name}}</a>
+                <a href="javascript:void(0)">{{ articulo.created }}</a>
+                <a href="javascript:void(0)">
+                  <span>3</span> Comentarios</a>
+              </small>
+            </p>
+            <p class="card-text"> {{articulo.description|markdown|slice:":90"}}</p>
+          </div>
+          <div class="card-block">
+            <div class="card-actions float-right">
+
+              <a id="likeBtnContainer{{articulo.id}}" href="javascript:void(0)">
+                  <i id="likeBtn{{articulo.id}}" class="icon wb-heart" aria-hidden="true">&#xB7;</i><span>0</span>
+                
+          </a>
+            </div>
+            <a href="{{articulo.slug}}/" class="btn btn-outline btn-primary card-link">Leer más</a>
+          </div>
+        </div>
+      </li>
+
+
+
+
+      <script>
+
+
+          $.ajax({
+            type:'POST',
+            dataType:'JSON',
+            url:'/articulos/count',
+            data:{'articulo':'{{articulo.id}}','user':'{{user.pk}}'},
+          }).done(function(data){
+
+            $("#likeBtn{{articulo.id}}").remove();
+            $("#likeBtn{{articulo.id}}").text("");
+            $("#likeBtnContainer{{articulo.id}}").text("");
+
+            if (data.status != "exist"){
+
+              $("#likeBtnContainer{{articulo.id}}").append('<i id="likeBtn{{articulo.id}}" class="icon wb-heart" aria-hidden="true">&#xB7;</i><span>'+data.countLikes+'</span>')
+
+            } else{
+            $("#likeBtnContainer{{articulo.id}}").append('<i id="likeBtn{{articulo.id}}" class="icon wb-heart" style="color: red">&#xB7;</i><span> '+data.countLikes+'</span>')
+            }
+
+          });
+
+
+
+          /**
+          Se activa cuando se da click al boton de like 
+          **/
+
+
+          $('#likeBtnContainer{{articulo.id}}').click(function () {
+        $.ajax({
+            type:'POST',
+            dataType:'JSON',
+            url: '/articulos/check-likes',
+            data: {'user':'{{user.pk}}','profile':'{{ profile.pk }}','articulo':'{{articulo.id}}'},
+           
+        }).done(function (data) {
+                                    if (data.success){
+                                        console.log(data.success);
+
+
+                                        /**
+                                         * Modificar el contador de likes
+                                         */
+
+                                         $("#likeBtn{{articulo.id}}").remove();
+                                         $("#likeBtn{{articulo.id}}").text("");
+                                         $("#likeBtnContainer{{articulo.id}}").text("");
+
+                                          /**
+
+                                          **/
+                                        
+                
+                                        if (data.status == "delete"){
+
+                                          $("#likeBtnContainer{{articulo.id}}").append('<i id="likeBtn{{articulo.id}}"  class="icon wb-heart" aria-hidden="true">&#xB7;</i><span>'+data.countLikes+'</span>')
+
+                                        } else{
+                                        $("#likeBtnContainer{{articulo.id}}").append('<i id="likeBtn{{articulo.id}}"  class="icon wb-heart" style="color: red">&#xB7;</i><span> '+data.countLikes+'</span>')
+                                        }
+
+
+                                    }
+                                })
+                                .fail(function () {
+                                    console.log("Error");
+
+                                });
+
+                              });
+
+
+
+
+
+      </script>
+
+      

@@ -1,0 +1,529 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+
+
+    <title>Bienvenido</title>
+
+    {% block css %}{% endblock%}
+
+
+    <link rel="apple-touch-icon" href='{% static "assets/images/apple-touch-icon.png"%}'>
+    <link rel="shortcut icon" href='{% static "assets/images/favicon.ico" %}'>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href='{% static "/assets/global/css/bootstrap.min.css"%}'>
+    <link rel="stylesheet" href='{% static "/assets/global/css/bootstrap-extend.min.css" %}'>
+    <link rel="stylesheet" href='{% static "/assets/css/site.css" %}'>
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href='{% static "/assets/global/vendor/animsition/animsition.css"%}'>
+    <link rel="stylesheet" href='{% static "/assets/global/vendor/asscrollable/asScrollable.css" %}'>
+    <link rel="stylesheet" href='{% static "/assets/global/vendor/switchery/switchery.css" %}'>
+    <link rel="stylesheet" href='{% static "/assets/global/vendor/intro-js/introjs.css" %}'>
+    <link rel="stylesheet" href='{% static "/assets/global/vendor/slidepanel/slidePanel.css" %}'>
+    <link rel="stylesheet" href='{% static "/assets/global/vendor/flag-icon-css/flag-icon.css" %}'>
+
+    <link rel="stylesheet" href="{% static '/assets/global/vendor/bootstrap-markdown/bootstrap-markdown.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/global/vendor/jquery-contextmenu/jquery.contextMenu.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/assets/examples/css/apps/notebook.css' %}">
+
+    <link rel="stylesheet" href="{% static '/assets/global/vendor/blueimp-file-upload/jquery.fileupload.css' %}">
+        <link rel="stylesheet" href="{% static '/assets/global/vendor/dropify/dropify.css' %}">
+        <link rel="stylesheet" href="{% static '/assets/examples/css/advanced/masonry.css' %}">
+
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="{% static '/assets/global/fonts/font-awesome/font-awesome.css' %}">
+    <link rel="stylesheet" href='{% static "/assets/global/fonts/web-icons/web-icons.min.css" %}'>
+    <link rel="stylesheet" href='{% static "/assets/global/fonts/brand-icons/brand-icons.min.css" %}'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+
+    <!--[if lt IE 9]>
+    <script src='{% static "/assets/global/vendor/html5shiv/html5shiv.min.js" %}'></script>
+    <![endif]-->
+
+    <!--[if lt IE 10]>
+    <script src='{% static "/assets/global/vendor/media-match/media.match.min.js" %}'></script>
+    <script src='{% static "/assets/global/vendor/respond/respond.min.js" %}'></script>
+    <![endif]-->
+
+    <!-- Scripts -->
+    <script src='{% static "/assets/global/vendor/breakpoints/breakpoints.js" %}'></script>
+    <script>
+      Breakpoints();
+
+
+    </script>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+</head>
+<body class="animsition" style="background:#f1f4f5">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggler collapsed" data-target="#example-navbar-toolbar-1"
+                    data-toggle="collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="icon wb-more-horizontal" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="navbar-toggler collapsed" data-target="#example-navbar-search-1"
+                    data-toggle="collapse">
+                <span class="sr-only">Toggle Search</span>
+                <i class="icon wb-search" aria-hidden="true"></i>
+            </button>
+            <a class="navbar-brand" href="javascript:void(0)">Plataforma</a>
+        </div>
+        <div class="collapse navbar-search navbar-left" id="example-navbar-search-1">
+            <form class="navbar-form" role="search">
+                <div class="input-search">
+                    <input type="text" class="form-control" placeholder="Buscar">
+                    <button type="button" class="input-search-btn">
+                        <i class="icon wb-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="collapse navbar-collapse navbar-collapse-toolbar" id="example-navbar-toolbar-1">
+            <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+                <li class="nav-item dropdown">
+                    <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <span class="avatar avatar-online">
+                          <img src="{% static '/default_avatar.png'%}" alt="...">
+                          <i></i>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item" href="../perfil" role="menuitem"><i class="icon wb-user"
+                                                                                              aria-hidden="true"></i>
+                            Perfil</a>
+                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-payment"
+                                                                                              aria-hidden="true"></i>
+                            Unirse</a>
+                        <a class="dropdown-item" href="../configuracion" role="menuitem"><i class="icon wb-settings"
+                                                                                              aria-hidden="true"></i>
+                            Configuracion</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout" role="menuitem"><i class="icon wb-power"
+                                                                                   aria-hidden="true"></i> Salir</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" title="Notifications"
+                       aria-expanded="false" data-animation="slide-bottom" role="button">
+                        <i class="icon wb-bell" aria-hidden="true"></i>
+                        <span class="badge badge-pill badge-danger up">5</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-media" role="menu">
+                        <div class="dropdown-menu-header">
+                            <h5>NOTIFICACIONES</h5>
+                            <span class="badge badge-round badge-danger">Nuevas 5</span>
+                        </div>
+
+                        <div class="list-group">
+                            <div data-role="container">
+                                <div data-role="content">
+                                    <a class="list-group-item dropdown-item" href="javascript:void(0)" role="menuitem">
+                                        <div class="media">
+                                            <div class="pr-10">
+                                                <i class="icon wb-order bg-red-600 white icon-circle"
+                                                   aria-hidden="true"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">Nueva tarea</h6>
+                                                <time class="media-meta" datetime="2018-06-12T20:50:48+08:00">Hace 5
+                                                    horas
+                                                </time>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item dropdown-item" href="javascript:void(0)" role="menuitem">
+                                        <div class="media">
+                                            <div class="pr-10">
+                                                <i class="icon wb-user bg-green-600 white icon-circle"
+                                                   aria-hidden="true"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">Tarea completada</h6>
+                                                <time class="media-meta" datetime="2018-06-11T18:29:20+08:00">Hace 2
+                                                    días
+                                                </time>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item dropdown-item" href="javascript:void(0)" role="menuitem">
+                                        <div class="media">
+                                            <div class="pr-10">
+                                                <i class="icon wb-settings bg-red-600 white icon-circle"
+                                                   aria-hidden="true"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">Configuracion actualizada</h6>
+                                                <time class="media-meta" datetime="2018-06-11T14:05:00+08:00">Hace 2
+                                                    días
+                                                </time>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item dropdown-item" href="javascript:void(0)" role="menuitem">
+                                        <div class="media">
+                                            <div class="pr-10">
+                                                <i class="icon wb-calendar bg-blue-600 white icon-circle"
+                                                   aria-hidden="true"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">Evento iniciado</h6>
+                                                <time class="media-meta" datetime="2018-06-10T13:50:18+08:00">Hace 3
+                                                    días
+                                                </time>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item dropdown-item" href="javascript:void(0)" role="menuitem">
+                                        <div class="media">
+                                            <div class="pr-10">
+                                                <i class="icon wb-chat bg-orange-600 white icon-circle"
+                                                   aria-hidden="true"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">Mensaje recibido</h6>
+                                                <time class="media-meta" datetime="2018-06-10T12:34:48+08:00">Hace 3
+                                                    días
+                                                </time>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-menu-footer">
+                            <a class="dropdown-menu-footer-btn" href="javascript:void(0)" role="button">
+                                <i class="icon wb-settings" aria-hidden="true"></i>
+                            </a>
+                            <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
+                                Todas las notificaciones
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" title="Messages"
+                       aria-expanded="false" data-animation="slide-bottom" role="button">
+                        <i class="icon wb-envelope" aria-hidden="true"></i>
+                        <span class="badge badge-pill badge-info up">4</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-media" role="menu">
+                        <div class="dropdown-menu-header" role="presentation">
+                            <h5>MENSAJES</h5>
+                            <span class="badge badge-round badge-info">Nuevos 4</span>
+                        </div>
+
+                        <div class="list-group" role="presentation">
+                            <div data-role="container">
+                                <div data-role="content">
+                                    <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                                        <div class="media">
+                                            <div class="pr-10">
+                                    <span class="avatar avatar-sm avatar-online">
+                                      <img src="{% static 'assets/global/portraits/2.jpg' %}" alt="..."/>
+                                      <i></i>
+                                    </span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">Mary Adams</h6>
+                                                <div class="media-meta">
+                                                    <time datetime="2018-06-17T20:22:05+08:00">Hace 30 minutos</time>
+                                                </div>
+                                                <div class="media-detail">Anyways, i would like just do it</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                                        <div class="media">
+                                            <div class="pr-10">
+                                    <span class="avatar avatar-sm avatar-off">
+                                      <img src="{% static 'assets/global/portraits/3.jpg' %}" alt="..."/>
+                                      <i></i>
+                                    </span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">Caleb Richards</h6>
+                                                <div class="media-meta">
+                                                    <time datetime="2018-06-17T12:30:30+08:00">Hace 12 horas</time>
+                                                </div>
+                                                <div class="media-detail">I checheck the document. But there seems</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                                        <div class="media">
+                                            <div class="pr-10">
+                                    <span class="avatar avatar-sm avatar-busy">
+                                      <img src="{% static 'assets/global/portraits/4.jpg' %}" alt="..."/>
+                                      <i></i>
+                                    </span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">June Lane</h6>
+                                                <div class="media-meta">
+                                                    <time datetime="2018-06-16T18:38:40+08:00">Hace 2 días</time>
+                                                </div>
+                                                <div class="media-detail">Lorem ipsum Id consectetur et minim</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                                        <div class="media">
+                                            <div class="pr-10">
+                                    <span class="avatar avatar-sm avatar-away">
+                                      <img src="{% static 'assets/global/portraits/5.jpg' %}" alt="..."/>
+                                      <i></i>
+                                    </span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">Edward Fletcher</h6>
+                                                <div class="media-meta">
+                                                    <time datetime="2018-06-15T20:34:48+08:00">Hace 3 días</time>
+                                                </div>
+                                                <div class="media-detail">Dolor et irure cupidatat commodo nostrud
+                                                    nostrud.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-menu-footer" role="presentation">
+                            <a class="dropdown-menu-footer-btn" href="javascript:void(0)" role="button">
+                                <i class="icon wb-settings" aria-hidden="true"></i>
+                            </a>
+                            <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
+                                Ver todos los mensajes
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="nav navbar-toolbar navbar-right">
+                <li class="nav-item "><a class="nav-link" href="/home">Inicio <span
+                        class="sr-only">(current)</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="/articulos">Articulos</a></li>
+                <li class="nav-item"><a class="nav-link" href="/cursos">Cursos</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- End Example Toolbar -->
+
+
+
+      <div class="page-content container-fluid">
+        <ul class="blocks blocks-100 blocks-xxl-4 blocks-lg-3 blocks-md-2 blue-grey-500" data-plugin="masonry">
+
+
+           
+
+        </ul>
+
+
+
+
+
+      </div>
+
+
+
+    <!-- End Page -->
+
+
+
+
+
+
+
+<button class="site-action site-floataction btn-raised btn btn-success btn-floating"
+            type="button" data-toggle="modal" data-target="#addStageFrom">
+        <i class="icon wb-pencil" aria-hidden="true"></i>
+    </button>
+    <div class="modal fade" id="addStageFrom" aria-hidden="true" aria-labelledby="addStageFrom"
+         role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-simple modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+                    <h4 class="modal-title">Crear nuevo articulo</h4>
+                </div>
+
+                <form method="POST" role="form" enctype="multipart/form-data">
+                    <div class="modal-body">
+
+                        {% csrf_token %}
+                        <input type="hidden" name="user" value="{{ user.pk }}"/>
+                        <input type="hidden" name="profile" value="{{ profile.pk }}"/>
+
+                        <label for="title">Titulo del articulo</label>
+                        <div class="form-group">
+                        <input type="text" id="title" required placeholder="Titulo del articulo" name="title" class="form-control">
+                        </div>
+
+
+                        <textarea id="mdEdit" required name="description" data-iconlibrary="fa"></textarea>
+
+
+                        <br><label for="photo">Imagen para el articulo</label>
+                        <div class="form-group">
+
+                            <input required name="photo"  type="file" id="photo" data-plugin="dropify" data-default-file="{% static '/assets/global/photos/placeholder.png' %}">
+
+                        </div>
+
+
+
+                    </div>
+                    <div class="modal-footer text-left">
+                        <button id="taskboardStageCreat" class="btn btn-primary" type="submit">Crear</button>
+                        <a class="btn btn-sm btn-white" data-dismiss="modal" href="javascript:void(0)">Cancelar</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+<!--
+<div class="page-content container-fluid">
+
+</div>
+-->
+
+<!-- End Page -->
+
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="site-footer-legal">© 2018 <a href="#">Plataforma E-learning</a></div>
+
+</footer>
+
+{% block js %}{% endblock %}
+<!-- Core  -->
+<script src='{% static "/assets/global/vendor/babel-external-helpers/babel-external-helpers.js" %}'></script>
+<script src='{% static "/assets/global/vendor/jquery/jquery.js" %}'></script>
+<script src='{% static "/assets/global/vendor/popper-js/umd/popper.min.js" %}'></script>
+<script src='{% static "/assets/global/vendor/bootstrap/bootstrap.js" %}'></script>
+<script src='{% static "/assets/global/vendor/animsition/animsition.js" %}'></script>
+<script src='{% static "/assets/global/vendor/mousewheel/jquery.mousewheel.js" %}'></script>
+<script src='{% static "/assets/global/vendor/asscrollbar/jquery-asScrollbar.js" %}'></script>
+<script src='{% static "/assets/global/vendor/asscrollable/jquery-asScrollable.js" %}'></script>
+<script src='{% static "/assets/global/vendor/ashoverscroll/jquery-asHoverScroll.js" %}'></script>
+
+
+<!-- Plugins -->
+
+<script src='{% static "/assets/global/vendor/switchery/switchery.js" %}'></script>
+<script src='{% static "/assets/global/vendor/intro-js/intro.js" %}'></script>
+<script src='{% static "/assets/global/vendor/screenfull/screenfull.js" %}'></script>
+<script src='{% static "/assets/global/vendor/slidepanel/jquery-slidePanel.js" %}'></script>
+
+<script src='{% static "/assets/global/vendor/plyr/plyr.js" %}'></script>
+<script src='{% static "/assets/global/vendor/matchheight/jquery.matchHeight-min.js" %}'></script>
+<script src='{% static "/assets/global/vendor/imagesloaded/imagesloaded.pkgd.js" %}'></script>
+<script src='{% static "/assets/global/vendor/masonry/masonry.pkgd.js" %}'></script>
+
+<script src='{% static "/assets/global/vendor/owl-carousel/owl.carousel.js'></script>
+<script src='{% static "/assets/global/vendor/slick-carousel/slick.js'></script>
+
+
+<script src="{% static '/assets/global/vendor/marked/marked.js' %}"></script>
+<script src="{% static '/assets/global/vendor/bootstrap-markdown/bootstrap-markdown.js' %}"></script>
+<script src="{% static '/assets/global/vendor/to-markdown/to-markdown.js' %}"></script>
+<script src="{% static '/assets/global/vendor/slidepanel/jquery-slidePanel.js' %}"></script>
+<script src="{% static '/assets/global/vendor/jquery-contextmenu/jquery.contextMenu.js' %}"></script>
+
+
+
+
+<script src="{% static '/assets/global/vendor/jquery-ui/jquery-ui.js' %}"></script>
+
+        <script src="{% static '/assets/global/vendor/dropify/dropify.js' %}"></script>
+
+
+
+
+<!-- Scripts -->
+
+
+<script src='{% static "/assets/global/js/Component.js" %}'></script>
+<script src='{% static "/assets/global/js/Plugin.js" %}'></script>
+<script src='{% static "/assets/global/js/Base.js" %}'></script>
+<script src='{% static "/assets/global/js/Config.js" %}'></script>
+
+<script src='{% static "/assets/js/Section/Menubar.js" %}'></script>
+<script src='{% static "/assets/js/Section/GridMenu.js" %}'></script>
+<script src='{% static "/assets/js/Section/Sidebar.js" %}'></script>
+<script src='{% static "/assets/js/Section/PageAside.js" %}'></script>
+<script src='{% static "/assets/js/Plugin/menu.js" %}'></script>
+
+<script src='{% static "/assets/global/js/config/colors.js" %}'></script>
+<script src='{% static "/assets/js/config/tour.js" %}'></script>
+
+<script src="{% static '/assets/global/vendor/imagesloaded/imagesloaded.pkgd.js' %}"></script>
+        <script src="{% static '/assets/global/vendor/masonry/masonry.pkgd.js' %}"></script>
+
+<script>Config.set('assets', '../../assets');</script>
+
+<!-- Page -->
+
+<script src='{% static "/assets/js/Site.js" %}'></script>
+<script src='{% static "/assets/global/js/Plugin/asscrollable.js" %}'></script>
+<script src='{% static "/assets/global/js/Plugin/slidepanel.js" %}'></script>
+<script src='{% static "/assets/global/js/Plugin/switchery.js" %}'></script>
+
+<script src='{% static "/assets/global/js/Plugin/plyr.js" %}'></script>
+<script src='{% static "/assets/global/js/Plugin/matchheight.js" %}'></script>
+<script src='{% static "/assets/global/js/Plugin/masonry.js" %}'></script>
+<script src='{% static "/assets/global/js/Plugin/owl-carousel.js" %}'></script>
+
+<script src='{% static "/assets/examples/js/uikit/carousel.js" %}'></script>
+
+
+<script src="{% static '/assets/global/js/Plugin/action-btn.js' %}"></script>
+<script src="{% static '/assets/js/Site.js' %}"></script>
+<script src="{% static '/assets/js/App/Notebook.js' %}"></script>
+
+<script src="{% static '/assets/examples/js/apps/notebook.js' %}"></script>
+<script src="{% static '/assets/global/js/Plugin/responsive-tabs.js' %}"></script>
+        <script src="{% static '/assets/global/js/Plugin/tabs.js' %}"></script>
+
+<script>
+      (function(document, window, $){
+        'use strict';
+
+        var Site = window.Site;
+        $(document).ready(function(){
+          Site.run();
+        });
+      })(document, window, jQuery);
+
+
+</script>
+</body>
+</html>

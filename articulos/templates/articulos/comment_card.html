@@ -1,0 +1,25 @@
+{% load markdown_deux_tags %}
+
+<div class="comment media">
+        <div class="pr-20">
+          <a class="avatar avatar-lg" href="javascript:void(0)">
+            <img src="{{comentariosarticulo.profile.picture.url}}" alt="...">
+          </a>
+        </div>
+        <div class="media-body">
+          <div class="comment-body">
+            <a class="comment-author" href="javascript:void(0)">{{comentariosarticulo.user.get_full_name}}</a>
+            <div class="comment-meta">
+              <span class="date">{{comentariosarticulo.created}}</span>
+            </div>
+            <div class="comment-content">
+              <p align="justify">{{comentariosarticulo.body|markdown}}</p>
+            </div>
+            <div class="comment-actions">
+              <a class="text-like active icon wb-heart" href="javascript:void(0)" role="button"></a>
+              <a href="javascript:void(0)" role="button">Responder</a>
+            </div>
+          </div>
+         
+        </div>
+      </div>

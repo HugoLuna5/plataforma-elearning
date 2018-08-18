@@ -1,0 +1,61 @@
+{% if results|length %}
+<div class="margin card col-md-12">
+
+	<table class="table table-striped">
+	<tr>
+		<td colspan=3>
+		<strong>Articulos encontrados {{ results|length }}</strong>
+		</td>
+	</tr>
+    <tr>
+		<td><strong>Titulo</strong></td>
+		<td><strong>Autor</strong></td>
+	</tr>
+	{% for r in results %}
+	<tr>
+		<td>{{ r.title }}</td>
+		<td>{{ r.user.get_username }}</td>
+	</tr>
+	{% endfor %}
+	</table>
+	<div id="containerButton" class="col-md-12" style="margin:20px">
+
+			<button id="close_search" class="btn btn-outline-danger" style="width:80px;height:30px;float:right">Cerrar</button>
+	
+	
+	</div>	
+{% else %}
+	<div class="note">
+	Your search yielded no results
+	</div>
+
+
+		<div id="containerButton">
+
+		<button id="close_search" class="btn btn-outline-danger" style="width:80px;height:30px;float:left">Cerrar</button>
+
+
+		</div>	
+
+</div>
+{% endif %}
+
+
+<script>
+	$('#close_search').click(function(){
+
+		$('#results').text("");
+		$('#search').val("");
+
+
+
+	});
+
+	
+	if($('#search').val() == ""){
+		$('#results').text("");
+	}
+
+
+</script>
+		
