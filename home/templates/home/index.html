@@ -39,6 +39,7 @@
     <link rel="stylesheet" href='{% static "/assets/global/vendor/plyr/plyr.css" %}'>
 
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="{% static '/js/autosize.js' %}"></script>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="{% static '/assets/global/fonts/font-awesome/font-awesome.css' %}">
@@ -63,6 +64,14 @@
 
 
     </script>
+
+    <style>
+    .formulario{
+     height: 30px;
+     min-height: 25px;
+     height:auto;
+    }
+  </style>
 </head>
 <body class="animsition" style="background:#f1f4f5">
 <!--[if lt IE 8]>
@@ -419,6 +428,7 @@
                 <div class="card-block">
                     <h4 class="card-title">Asignaciones</h4>
                     <hr>
+                    
                 </div>
             </div>
 
@@ -510,9 +520,7 @@
 <script src='{% static "/assets/global/vendor/slick-carousel/slick.js'></script>
 
 
-<script src="{% static '/assets/global/vendor/marked/marked.js' %}"></script>
 <script src="{% static '/assets/global/vendor/bootstrap-markdown/bootstrap-markdown.js' %}"></script>
-<script src="{% static '/assets/global/vendor/to-markdown/to-markdown.js' %}"></script>
 <script src="{% static '/assets/global/vendor/slidepanel/jquery-slidePanel.js' %}"></script>
 <script src="{% static '/assets/global/vendor/jquery-contextmenu/jquery.contextMenu.js' %}"></script>
 
@@ -567,6 +575,9 @@
           Site.run();
         });
       })(document, window, jQuery);
+
+
+      autosize(document.querySelectorAll('textarea'));
 
 
 

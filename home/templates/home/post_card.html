@@ -26,8 +26,177 @@
     </div>
 
 
-    <p class="ml-2 mt-0 mb-2">
-      Comentarios
+    <p class="ml-2 mt-0 mb-2" style="margin-top: -80px;">
+      
+
+        <!--count likes and comments--> 
+        <div class="card-block"  style="margin-top: -30px;">
+            <div class="card-actions ">
+
+
+
+                <div class="row float-rigth">
+                    <!--count comentarios-->   
+                    <div class="col-md-10" style="float: right; text-align: right">
+                    0 Comentarios
+        
+                    </div>
+        
+                     <!--count Likes--> 
+                    <div class="col-md-2">
+                        <a id="likeBtnContainer{{post.id}}" href="javascript:void(0)">
+                            <i id="likeBtn{{post.id}}" class="icon wb-heart" aria-hidden="true">&#xB7;</i><span>100000</span>
+                          
+                    </a>
+        
+                    </div>
+        
+                </div>
+
+
+            </div>
+          </div>
+        <!--add comments--> 
+<hr>
+          <div id="addComment" >
+
+            <div class="media pt-3 pl-3 pb-1">
+                <a href='/users/{.user.get_username}}'>
+                    <img class="mr-3 rounded-circle" height="35" src="{{ user.profile.picture.url }}" alt="{{ post.user.get_full_name }}">
+                </a>
+                <div class="media-body">
+                    <p style="margin-top: -2px; margin-left:5px;">
+                        <a style="text-decoration: none; color:#000" href='/users/{{user.get_username}}'>{{ post.user.get_full_name  }}</a>
+                        <br></p>
+        
+                </div>
+        
+               
+
+            </div>
+
+            <textarea required="required" name="commentBody{{post.id}}" id="commentBody{{post.id}}" 
+            placeholder="Escribe aqui tu comentario"
+             class="col-md-11 col-sm-11 col-xs-11 formulario form-group form-control"
+              style="resize: none; overflow-x: hidden; overflow-y: hidden; word-wrap: break-word; height: 40px; float: right; margin-top: -15px; margin-left: 5px;"></textarea>
+                
+              <button style="float: right" id="createComment{{post.id}}" class="btn btn-outline-success">Responder</button>
+
+
+          </div>
+
+
+          <!--add comment script-->
+          <script>
+          
+          
+            $('#createComment{{post.id}}').click(function(){
+
+                    
+                    $.ajax({
+                        type:'POST',
+                        method:'POST',
+                        url:'/create-comment-post',
+                        dataType:'JSON',
+                        data:{'user':'{{user.pk}}','profile':'{{profile.pk}}','post':'{{post.id}}','comment':$('#commentBody{{post.id}}').val()}
+                    }).done(function(data){
+
+
+                            $('#commentBody{{post.id}}').val("");
+                            alert('Se agrego tu comentario'+data.message);
+
+                    });
+
+
+            });
+          
+          </script>
+
+          <!--add like btn script-->
+          <script>
+
+
+            $.ajax({
+              type:'POST',
+              dataType:'JSON',
+              url:'/post/count',
+              data:{'post':'{{post.id}}','user':'{{user.pk}}'},
+            }).done(function(data){
+  
+              $("#likeBtn{{post.id}}").remove();
+              $("#likeBtn{{post.id}}").text("");
+              $("#likeBtnContainer{{post.id}}").text("");
+  
+              if (data.status != "exist"){
+  
+                $("#likeBtnContainer{{post.id}}").append('<i id="likeBtn{{post.id}}" class="icon wb-heart" aria-hidden="true">&#xB7;</i><span>'+data.countLikes+'</span>')
+  
+              } else{
+              $("#likeBtnContainer{{post.id}}").append('<i id="likeBtn{{post.id}}" class="icon wb-heart" style="color: red">&#xB7;</i><span> '+data.countLikes+'</span>')
+              }
+  
+            });
+  
+  
+  
+            /**
+            Se activa cuando se da click al boton de like 
+            **/
+  
+  
+            $('#likeBtnContainer{{post.id}}').click(function () {
+          $.ajax({
+              type:'POST',
+              dataType:'JSON',
+              url: '/post/check-likes',
+              data: {'user':'{{user.pk}}','profile':'{{ profile.pk }}','post':'{{post.id}}'},
+             
+          }).done(function (data) {
+                                      if (data.success){
+                                          console.log(data.success);
+  
+  
+                                          /**
+                                           * Modificar el contador de likes
+                                           */
+  
+                                           $("#likeBtn{{post.id}}").remove();
+                                           $("#likeBtn{{post.id}}").text("");
+                                           $("#likeBtnContainer{{post.id}}").text("");
+  
+                                            /**
+  
+                                            **/
+                                          
+                  
+                                          if (data.status == "delete"){
+  
+                                            $("#likeBtnContainer{{post.id}}").append('<i id="likeBtn{{post.id}}"  class="icon wb-heart" aria-hidden="true">&#xB7;</i><span>'+data.countLikes+'</span>')
+  
+                                          } else{
+                                          $("#likeBtnContainer{{post.id}}").append('<i id="likeBtn{{post.id}}"  class="icon wb-heart" style="color: red">&#xB7;</i><span> '+data.countLikes+'</span>')
+                                          }
+  
+  
+                                      }
+                                  })
+                                  .fail(function () {
+                                      console.log("Error");
+  
+                                  });
+  
+                                });
+  
+  
+  
+  
+  
+        </script>
+
+
+        
+
+
     </p>
 </div>
 
