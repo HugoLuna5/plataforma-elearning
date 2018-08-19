@@ -97,7 +97,7 @@
         <div class="collapse navbar-search navbar-left col-md-4" id="example-navbar-search-1">
             <form class="navbar-form" role="search">
                 <div class="input-search ">
-                    <input type="text" id="search" name="search" class=" form-control" placeholder="Buscar">
+                    <input autocomplete="off" type="text" id="search" name="search" class=" form-control" placeholder="Buscar">
                     <button type="button" class="input-search-btn">
                         <i class="icon wb-search" aria-hidden="true"></i>
                     </button>
@@ -137,7 +137,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false">
                         <span class="avatar avatar-online">
-                          <img src="{% static '/default_avatar.png'%}" alt="...">
+                          <img src="{{user.profile.picture.url}}" alt="...">
                           <i></i>
                         </span>
                     </a>

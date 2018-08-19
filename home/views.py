@@ -42,7 +42,10 @@ def createComment(request):
     if request.is_ajax:
         comentario = ComentarioPost(user=request.user,profile=request.user.profile,body=request.POST['comment'],post=int(request.POST['post']),comment_child=0)
         comentario.save()
+        countComment = ComentarioPost.objects.filter(post=request.POST['post']).count()
+        data['countComment'] = countComment
         data['message'] = 'success'
+
     else:
         data['message'] = 'error'
 
@@ -110,16 +113,12 @@ def checkLikesCountPost(request):
             data['status'] = 'no'
 
     countLikes = LikePost.objects.filter(post=request.POST['post']).count()
+    countComment = ComentarioPost.objects.filter(post=request.POST['post']).count()
+    data['countComment'] = countComment
 
     data['countLikes'] = countLikes
 
     return JsonResponse(data)
-
-
-
-
-
-
 
 
 

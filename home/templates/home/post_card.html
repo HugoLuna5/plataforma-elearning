@@ -37,8 +37,8 @@
 
                 <div class="row float-rigth">
                     <!--count comentarios-->   
-                    <div class="col-md-10" style="float: right; text-align: right">
-                    0 Comentarios
+                    <div id="commentContainer{{post.id}}" class="col-md-10" style="float: right; text-align: right">
+                    <i id="commentCount{{post.id}}">0 Comentarios</i>
         
                     </div>
         
@@ -88,6 +88,9 @@
 
           <!--add comment script-->
           <script>
+
+
+            
           
           
             $('#createComment{{post.id}}').click(function(){
@@ -103,7 +106,16 @@
 
 
                             $('#commentBody{{post.id}}').val("");
-                            alert('Se agrego tu comentario'+data.message);
+
+                            $("#commentCount{{post.id}}").remove();
+                            $("#commentCount{{post.id}}").text("");
+                            $("#commentContainer{{post.id}}").text("");
+
+
+                            
+
+                            $('#commentContainer{{post.id}}').append('<i id="commentCount{{post.id}}">'+data.countComment+' Comentarios</i>');
+
 
                     });
 
@@ -129,11 +141,23 @@
   
               if (data.status != "exist"){
   
-                $("#likeBtnContainer{{post.id}}").append('<i id="likeBtn{{post.id}}" class="icon wb-heart" aria-hidden="true">&#xB7;</i><span>'+data.countLikes+'</span>')
+                $("#likeBtnContainer{{post.id}}").append('<i id="likeBtn{{post.id}}" class="icon wb-heart" aria-hidden="true">&#xB7;</i><span>'+data.countLikes+'</span>');
   
               } else{
-              $("#likeBtnContainer{{post.id}}").append('<i id="likeBtn{{post.id}}" class="icon wb-heart" style="color: red">&#xB7;</i><span> '+data.countLikes+'</span>')
+              $("#likeBtnContainer{{post.id}}").append('<i id="likeBtn{{post.id}}" class="icon wb-heart" style="color: red">&#xB7;</i><span> '+data.countLikes+'</span>');
               }
+
+
+
+              $("#commentCount{{post.id}}").remove();
+              $("#commentCount{{post.id}}").text("");
+              $("#commentContainer{{post.id}}").text("");
+
+
+             
+
+              $('#commentContainer{{post.id}}').append('<i id="commentCount{{post.id}}">'+data.countComment+' Comentarios</i>');
+
   
             });
   

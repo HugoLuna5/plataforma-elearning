@@ -34,7 +34,6 @@ urlpatterns = [
     url(r'^post/check-likes',checkLikesPost),
     url('post/count',checkLikesCountPost),
 
-
     path('admin/', admin.site.urls),
     path('cursos/',include("cursos.urls")),
     path('register/', RegisterView.as_view()),
