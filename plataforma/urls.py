@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
-from home.views import HomeView,WelcomeView,search
+from home.views import HomeView,WelcomeView,search,createComment,checkLikesPost,checkLikesCountPost
 from accounts.views import RegisterView, LogoutView
 from perfil.views import Perfil, EditPerfil
 from django.conf import settings
@@ -27,7 +27,14 @@ from articulos.views import Articulos,ArticulosDetail,checkLikes,checkLikesCount
 
 urlpatterns = [
     path('',WelcomeView.as_view()),
+
+    #Home and Post url
     path('home/',HomeView.as_view(), name="home"),
+    url(r'^create-comment-post',createComment),
+    url(r'^post/check-likes',checkLikesPost),
+    url('post/count',checkLikesCountPost),
+
+
     path('admin/', admin.site.urls),
     path('cursos/',include("cursos.urls")),
     path('register/', RegisterView.as_view()),
