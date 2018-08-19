@@ -25,7 +25,7 @@ SECRET_KEY = '$mu%18iavz9dcw&%5^y!s8i%tufg9_khrsp)&)jwun7#4$*_mx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['homeworkassistant.ddns.net']
 
 
 # Application definition
